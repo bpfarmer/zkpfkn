@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{cite}
+\usepackage{draftwatermark}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage[boxed]{algorithm2e}
+\usepackage{csquotes}
+
+
+% Scale for DRAFT watermark.
+\SetWatermarkFontSize{24cm}
+\SetWatermarkScale{5}
+\SetWatermarkLightness{0.92}
+
+% Hyperlink colors.
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+}
+
+% Theorem definitions.
+\declaretheorem{theorem}
+\declaretheorem{lemma}
+
+% We want all section autorefs to say "Section".
+\def\sectionautorefname{Section}
+\let\subsectionautorefname\sectionautorefname
+\let\subsubsectionautorefname\sectionautorefname
+
+% Integer interval notation; from https://tex.stackexchange.com/a/304670/99124
+\newcommand{\isep}{\mathrel{{.}\,{.}}\nobreak}
+
+\newcommand{\vote}[1]{\angled{#1}}
+\newcommand{\preparevote}[1]{\vote{\mathtt{PREPARE}, #1}}
+\newcommand{\commitvote}[1]{\vote{\mathtt{COMMIT}, #1}}
+\newcommand{\prepared}[2][]{\operatorname{prepared}_{#1}(#2)}
+\newcommand{\committed}[2][]{\operatorname{committed}_{#1}(#2)}
+
+% \angled{...}
+\DeclarePairedDelimiter{\angled}{\langle}{\rangle}
+
+\title{Zero-Knowledge Proofs for Know-Nothings}
+\author{
+  Brendan Farmer
+}
+\date{DRAFT\\\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This is a book! Well, probably not. But it does intend to be a resource for those interested in learning more about zero-knowledge proofs without (many) prerequisites.
+
+\end{abstract}
+
+\newpage
+{\hypersetup{hidelinks} \tableofcontents}
+\newpage
+
+\input{introduction}
+\input{preliminaries}
+\input{protocol-design}
+\input{implementation}
+\input{examples}
+\input{conclusion}
+
+\bibliography{bibliography}{}
+\bibliographystyle{ieeetr}
+
+\end{document}
